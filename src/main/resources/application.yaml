@@ -1,1 +1,13 @@
-spring.application.name: spring-data-jdbc-jsonb
+spring:
+  application:
+    name: spring-data-jdbc-jsonb
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring_data_jdbc_jsonb
+    username: spring_data_jdbc_jsonb
+    password: spring_data_jdbc_jsonb
+  liquibase:
+    driver-class-name: org.postgresql.Driver
+    change-log: db/changelog/changelog.xml
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
