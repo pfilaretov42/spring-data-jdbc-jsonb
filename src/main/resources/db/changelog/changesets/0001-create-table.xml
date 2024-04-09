@@ -19,6 +19,9 @@
             <column name="id" type="uuid" defaultValueComputed="uuid_generate_v4()">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
+            <column name="full_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
             <column name="superpower" type="jsonb">
                 <constraints nullable="false"/>
             </column>
