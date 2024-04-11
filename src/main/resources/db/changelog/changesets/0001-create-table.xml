@@ -22,6 +22,9 @@
             <column name="full_name" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="alias" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
             <column name="superpower" type="jsonb">
                 <constraints nullable="false"/>
             </column>

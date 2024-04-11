@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="add data" author="pfilaretov42">
+        <sql splitStatements="true" stripComments="false">
+            <![CDATA[
+            INSERT INTO friends(full_name, alias, superpower)
+            VALUES ('Peter Parker',
+                    'Spider-Man',
+                    '{
+                      "abilities": [
+                        "Superhuman strength",
+                        "Precognitive spider-sense",
+                        "Ability to cling to solid surfaces"
+                      ],
+                      "weapon": [
+                        "web-shooters"
+                      ],
+                      "rating": 97
+                    }');
+
+            INSERT INTO friends(full_name, alias, superpower)
+            VALUES ('Steven Grant Rogers',
+                    'Captain America',
+                    '{
+                      "abilities": [
+                        "Superhuman Strength",
+                        "Master martial artist",
+                        "Master tactician and strategist"
+                      ],
+                      "weapon": ["Virtually Indestructible Shield"],
+                      "rating": 41
+                    }');
+
+            INSERT INTO friends(full_name, alias, superpower)
+            VALUES ('Clark Kent',
+                    'Superman',
+                    '{
+                      "abilities": [
+                        "Superhuman strength",
+                        "Speed",
+                        "Heat vision",
+                        "X-ray vision",
+                        "Wind and freeze breath",
+                        "Flight",
+                        "Invulnerability"
+                      ],
+                      "weapon": [],
+                      "rating": 53
+                    }');
+
+            INSERT INTO friends(full_name, alias, superpower)
+            VALUES ('Bruce Wayne',
+                    'Batman',
+                    '{
+                      "abilities": [
+                        "Genius-level intellect",
+                        "Expert detective",
+                        "Master martial artist",
+                        "Master tactician and strategist"
+                      ],
+                      "weapon": ["High-tech equipment"],
+                      "rating": 28
+                    }');
+            ]]>
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
