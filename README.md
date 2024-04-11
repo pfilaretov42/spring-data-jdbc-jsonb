@@ -12,4 +12,4 @@ The project shows how to work with jsonb column using Spring Data JDBC.
   grant all privileges on database spring_data_jdbc_jsonb to spring_data_jdbc_jsonb;
   ```
 - Run Spring Boot application `SpringDataJdbcJsonbApplication`.
-- Liquibase will create database table(s) on the application startup.
+- Liquibase will create database table(s) and initial data on the application startup.
