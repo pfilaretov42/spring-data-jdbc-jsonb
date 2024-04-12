@@ -1,5 +1,7 @@
 package dev.pfilaretov42.spring.data.jdbc.jsonb.config
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import dev.pfilaretov42.spring.data.jdbc.jsonb.entity.SuperpowerEntity
 import org.postgresql.util.PGobject
 import org.springframework.context.annotation.Configuration
 import org.springframework.core.convert.converter.Converter
@@ -13,32 +15,34 @@ import org.springframework.stereotype.Component
  */
 @Configuration
 class JdbcConfig(
-    private val stringWritingConverter: StringWritingConverter,
-    private val stringReadingConverter: StringReadingConverter,
+    private val superpowerEntityWritingConverter: SuperpowerEntityWritingConverter,
+    private val superpowerEntityReadingConverter: SuperpowerEntityReadingConverter,
 ) : AbstractJdbcConfiguration() {
     override fun userConverters(): MutableList<*> {
-        return mutableListOf(
-            stringWritingConverter,
-            stringReadingConverter,
-        )
+        return mutableListOf(superpowerEntityWritingConverter, superpowerEntityReadingConverter)
     }
 }
 
 @Component
 @WritingConverter
-class StringWritingConverter : Converter<String, PGobject> {
-    override fun convert(source: String): PGobject {
+class SuperpowerEntityWritingConverter(
+    private val objectMapper: ObjectMapper,
+) : Converter<SuperpowerEntity, PGobject> {
+    override fun convert(source: SuperpowerEntity): PGobject {
         val jsonObject = PGobject()
         jsonObject.type = "jsonb"
-        jsonObject.value = source
+        jsonObject.value = objectMapper.writeValueAsString(source)
         return jsonObject
     }
 }
 
 @Component
 @ReadingConverter
-class StringReadingConverter : Converter<PGobject, String> {
-    override fun convert(pgObject: PGobject): String? {
-        return pgObject.value
+class SuperpowerEntityReadingConverter(
+    private val objectMapper: ObjectMapper,
+) : Converter<PGobject, SuperpowerEntity> {
+    override fun convert(pgObject: PGobject): SuperpowerEntity {
+        val source = pgObject.value
+        return objectMapper.readValue(source, SuperpowerEntity::class.java)
     }
 }

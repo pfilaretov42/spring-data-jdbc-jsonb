@@ -8,5 +8,11 @@ class FriendsEntity(
     val id: UUID,
     val fullName: String,
     val alias: String,
-    val superpower: String,
+    val superpower: SuperpowerEntity,
+)
+
+class SuperpowerEntity(
+    val abilities: List<String>,
+    val weapon: List<String>,
+    val rating: Int,
 )
