@@ -11,6 +11,7 @@ class FriendsFullResponseDto(
     val fullName: String,
     val alias: String,
     val superpower: FriendsSuperpowerDto,
+    val extras: Map<String, Any?>?,
 )
 
 class FriendsSuperpowerDto(

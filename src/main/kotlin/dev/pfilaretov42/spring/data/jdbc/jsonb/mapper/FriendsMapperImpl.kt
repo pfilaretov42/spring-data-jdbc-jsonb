@@ -16,6 +16,7 @@ class FriendsMapperImpl : FriendsMapper {
                 fullName = entity.fullName,
                 alias = entity.alias,
                 superpower = toDto(entity.superpower),
+                extras = entity.extras,
             )
         }
     )
