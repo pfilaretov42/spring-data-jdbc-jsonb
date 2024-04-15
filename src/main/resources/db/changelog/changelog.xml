@@ -7,5 +7,6 @@
 
     <include file="db/changelog/changesets/0001-create-table.xml"/>
     <include file="db/changelog/changesets/0002-add-data.xml"/>
+    <include file="db/changelog/changesets/0003-add-extras.xml"/>
 
 </databaseChangeLog>

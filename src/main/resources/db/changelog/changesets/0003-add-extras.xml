@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="add extras column" author="pfilaretov42">
+        <addColumn tableName="friends">
+            <column name="extras" type="jsonb"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="update data with extras" author="pfilaretov42">
+        <update tableName="friends">
+            <column name="extras" value='
+                {
+                  "species": "Human mutate",
+                  "publisher": "Marvel Comics",
+                  "createdBy": [
+                    "Stan Lee",
+                    "Steve Ditko"
+                  ]
+                }
+            '/>
+            <where>alias='Spider-Man'</where>
+        </update>
+        <update tableName="friends">
+            <column name="extras" value='
+                {
+                  "publisher": "Marvel Comics",
+                  "createdBy": [
+                    "Joe Simon",
+                    "Jack Kirby"
+                  ],
+                  "notableAliases": [
+                    "Nomad",
+                    "The Captain"
+                  ]
+                }
+            '/>
+            <where>alias='Captain America'</where>
+        </update>
+        <update tableName="friends">
+            <column name="extras" value='
+                {
+                  "publisher": "DC Comics",
+                  "birthName": "Kal-El",
+                  "createdBy": {
+                    "writer": "Jerry Siegel",
+                    "artist": "Joe Shuster"
+                  },
+                  "notableAliases": [
+                    "Superboy",
+                    "The Man of Steel"
+                  ]
+                }
+            '/>
+            <where>alias='Superman'</where>
+        </update>
+        <!-- Leave extras=null for Batman -->
+    </changeSet>
+
+</databaseChangeLog>
