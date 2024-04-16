@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component
 @Component
 class FriendsMapperImpl : FriendsMapper {
     override fun toDto(entities: List<FriendsEntity>) = FriendsResponseDto(
-        friends = entities.map { entity ->
-            FriendsFullResponseDto(
-                id = entity.id,
-                fullName = entity.fullName,
-                alias = entity.alias,
-                superpower = toDto(entity.superpower),
-                extras = entity.extras,
-            )
-        }
+        friends = entities.map { toDto(it) }
+    )
+
+    override fun toDto(entity: FriendsEntity) = FriendsFullResponseDto(
+        id = entity.id,
+        fullName = entity.fullName,
+        alias = entity.alias,
+        superpower = toDto(entity.superpower),
+        extras = entity.extras,
     )
 
     private fun toDto(entity: SuperpowerEntity) = FriendsSuperpowerDto(
