@@ -41,6 +41,11 @@ class FriendsService(
         friendsRepository.save(entity)
     }
 
+    @Transactional
+    fun delete(id: UUID) {
+        friendsRepository.deleteById(id)
+    }
+
 }
 
 

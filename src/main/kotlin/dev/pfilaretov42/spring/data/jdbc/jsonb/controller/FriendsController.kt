@@ -6,6 +6,7 @@ import dev.pfilaretov42.spring.data.jdbc.jsonb.dto.FriendsRequestDto
 import dev.pfilaretov42.spring.data.jdbc.jsonb.dto.FriendsResponseDto
 import dev.pfilaretov42.spring.data.jdbc.jsonb.service.FriendsService
 import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -37,6 +38,12 @@ class FriendsController(
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun updateFriend(@PathVariable("id") id: UUID, @RequestBody request: FriendsRequestDto) {
         friendsService.update(id, request)
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun deleteFriend(@PathVariable("id") id: UUID) {
+        friendsService.delete(id)
     }
 
 

@@ -67,3 +67,6 @@ Content-Type: application/json
     }
   }
 }
+
+### Delete a friend
+DELETE http://localhost:8080/api/v1/friends/29663075-8ba3-468f-839b-63fefc5059ae
