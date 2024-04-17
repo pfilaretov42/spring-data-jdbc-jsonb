@@ -17,7 +17,7 @@ class FriendsMapperImpl : FriendsMapper {
     )
 
     override fun toDto(entity: FriendsEntity) = FriendsFullResponseDto(
-        id = entity.id,
+        id = entity.uuid,
         fullName = entity.fullName,
         alias = entity.alias,
         superpower = toDto(entity.superpower),
@@ -31,9 +31,7 @@ class FriendsMapperImpl : FriendsMapper {
     )
 
     override fun fromDto(dto: FriendsRequestDto) = FriendsEntity(
-        // TODO - generate id,
-        //  next step - need to make sure that entity is marked as new for spring data
-        id = UUID.randomUUID(),
+        uuid = UUID.randomUUID(),
         fullName = dto.friend.fullName,
         alias = dto.friend.alias,
         superpower = fromDto(dto.friend.superpower),

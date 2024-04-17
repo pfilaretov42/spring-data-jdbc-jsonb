@@ -30,9 +30,9 @@ class FriendsService(
 
     @Transactional
     fun create(request: FriendsRequestDto): CreateFriendResponseDto {
-        val entity = friendsMapper.fromDto(request)
+        val entity = friendsMapper.fromDto(request).also { it.isNewEntity = true }
         val createdEntity = friendsRepository.save(entity)
-        return CreateFriendResponseDto(createdEntity.id)
+        return CreateFriendResponseDto(createdEntity.uuid)
     }
 
 }
