@@ -35,3 +35,35 @@ Content-Type: application/json
     }
   }
 }
+
+### Update a friend
+PUT http://localhost:8080/api/v1/friends/85670f8f-aae7-4feb-aa9c-a61574e8b60f
+Content-Type: application/json
+
+{
+  "friend": {
+    "fullName": "Tony Stark",
+    "alias": "Iron Man",
+    "superpower": {
+      "abilities": [
+        "Genius-level intellect",
+        "Proficient scientist and engineer"
+      ],
+      "weapon": [
+        "Powered armor suit"
+      ],
+      "rating": 77
+    },
+    "extras": {
+      "publisher": "Marvel Comics",
+      "firstAppearance": {
+        "comicBook": "Tales of Suspense #39",
+        "year": 1963
+      },
+      "createdBy": [
+        "Stan Lee",
+        "Larry Lieber"
+      ]
+    }
+  }
+}

@@ -30,8 +30,8 @@ class FriendsMapperImpl : FriendsMapper {
         rating = entity.rating,
     )
 
-    override fun fromDto(dto: FriendsRequestDto) = FriendsEntity(
-        uuid = UUID.randomUUID(),
+    override fun fromDto(id: UUID?, dto: FriendsRequestDto) = FriendsEntity(
+        uuid = id ?: UUID.randomUUID(),
         fullName = dto.friend.fullName,
         alias = dto.friend.alias,
         superpower = fromDto(dto.friend.superpower),
