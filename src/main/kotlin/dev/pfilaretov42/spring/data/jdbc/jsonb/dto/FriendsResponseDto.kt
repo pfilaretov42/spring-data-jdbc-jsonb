@@ -10,12 +10,16 @@ class FriendsFullResponseDto(
     val id: UUID,
     val fullName: String,
     val alias: String,
-    val superpower: FriendsSuperpowerDto,
+    val superpower: FriendsSuperpowerResponseDto,
     val extras: Map<String, Any?>?,
 )
 
-class FriendsSuperpowerDto(
+class FriendsSuperpowerResponseDto(
     val abilities: List<String>,
     val weapon: List<String>,
     val rating: Int,
+)
+
+class CreateFriendResponseDto(
+    val id: UUID,
 )
