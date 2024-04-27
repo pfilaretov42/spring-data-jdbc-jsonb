@@ -7,6 +7,9 @@ GET http://localhost:8080/api/v1/friends/9463a880-4017-43fd-951e-233fd249091c
 ### Get friend by non-existent id
 GET http://localhost:8080/api/v1/friends/9463a880-0000-0000-0000-233fd249091c
 
+### Get friends by superpower rating
+GET http://localhost:8080/api/v1/friends/by-superpower?rating=50&operator=GT
+
 ### Create a friend
 POST http://localhost:8080/api/v1/friends
 Content-Type: application/json

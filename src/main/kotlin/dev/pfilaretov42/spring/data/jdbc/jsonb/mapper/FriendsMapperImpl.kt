@@ -1,6 +1,6 @@
 package dev.pfilaretov42.spring.data.jdbc.jsonb.mapper
 
-import dev.pfilaretov42.spring.data.jdbc.jsonb.dto.FriendsFullResponseDto
+import dev.pfilaretov42.spring.data.jdbc.jsonb.dto.FriendResponseDto
 import dev.pfilaretov42.spring.data.jdbc.jsonb.dto.FriendsRequestDto
 import dev.pfilaretov42.spring.data.jdbc.jsonb.dto.FriendsResponseDto
 import dev.pfilaretov42.spring.data.jdbc.jsonb.dto.FriendsSuperpowerRequestDto
@@ -16,7 +16,7 @@ class FriendsMapperImpl : FriendsMapper {
         friends = entities.map { toDto(it) }
     )
 
-    override fun toDto(entity: FriendsEntity) = FriendsFullResponseDto(
+    override fun toDto(entity: FriendsEntity) = FriendResponseDto(
         id = entity.uuid,
         fullName = entity.fullName,
         alias = entity.alias,

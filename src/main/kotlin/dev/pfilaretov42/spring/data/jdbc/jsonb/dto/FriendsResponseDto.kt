@@ -3,10 +3,10 @@ package dev.pfilaretov42.spring.data.jdbc.jsonb.dto
 import java.util.*
 
 class FriendsResponseDto(
-    val friends: List<FriendsFullResponseDto>,
+    val friends: List<FriendResponseDto>,
 )
 
-class FriendsFullResponseDto(
+class FriendResponseDto(
     val id: UUID,
     val fullName: String,
     val alias: String,

@@ -1,7 +1,8 @@
 package dev.pfilaretov42.spring.data.jdbc.jsonb.controller
 
+import dev.pfilaretov42.spring.data.jdbc.jsonb.dto.ComparisonOperator
 import dev.pfilaretov42.spring.data.jdbc.jsonb.dto.CreateFriendResponseDto
-import dev.pfilaretov42.spring.data.jdbc.jsonb.dto.FriendsFullResponseDto
+import dev.pfilaretov42.spring.data.jdbc.jsonb.dto.FriendResponseDto
 import dev.pfilaretov42.spring.data.jdbc.jsonb.dto.FriendsRequestDto
 import dev.pfilaretov42.spring.data.jdbc.jsonb.dto.FriendsResponseDto
 import dev.pfilaretov42.spring.data.jdbc.jsonb.service.FriendsService
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 import java.util.*
@@ -26,8 +28,15 @@ class FriendsController(
     @GetMapping
     fun getAllFriends(): FriendsResponseDto = friendsService.getAll()
 
+    @GetMapping("/by-superpower")
+    fun getFriendsBySuperpowerRating(
+        @RequestParam("rating") rating: Int,
+        @RequestParam("operator") operator: ComparisonOperator,
+    ): FriendsResponseDto =
+        friendsService.getBySuperpowerRating(rating, operator)
+
     @GetMapping("/{id}")
-    fun getFriend(@PathVariable("id") id: UUID): FriendsFullResponseDto = friendsService.get(id)
+    fun getFriend(@PathVariable("id") id: UUID): FriendResponseDto = friendsService.get(id)
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
