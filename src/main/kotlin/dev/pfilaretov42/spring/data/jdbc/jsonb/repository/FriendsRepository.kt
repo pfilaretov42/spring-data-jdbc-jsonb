@@ -8,10 +8,7 @@ import java.util.*
 interface FriendsRepository : CrudRepository<FriendsEntity, UUID> {
     override fun findAll(): List<FriendsEntity>
 
-    fun findBySuperpowerRatingGreaterThan(rating: Int): List<FriendsEntity>
-
-
     @Query("select * from friends where (superpower->>'rating')::NUMERIC > :rating order by alias")
-    fun findBySuperpowerRatingGreaterThan2(rating: Int): List<FriendsEntity>
+    fun findBySuperpowerRatingGreaterThan(rating: Int): List<FriendsEntity>
 
 }
