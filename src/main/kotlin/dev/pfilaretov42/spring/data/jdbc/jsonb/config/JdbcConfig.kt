@@ -59,8 +59,8 @@ class SuperpowerEntityReadingConverter(
 @WritingConverter
 class MapWritingConverter(
     private val objectMapper: ObjectMapper,
-) : Converter<Map<String, Any?>, PGobject> {
-    override fun convert(source: Map<String, Any?>): PGobject {
+) : Converter<Map<String, String?>, PGobject> {
+    override fun convert(source: Map<String, String?>): PGobject {
         val jsonObject = PGobject()
         jsonObject.type = "jsonb"
         jsonObject.value = objectMapper.writeValueAsString(source)
@@ -72,9 +72,9 @@ class MapWritingConverter(
 @ReadingConverter
 class MapReadingConverter(
     private val objectMapper: ObjectMapper,
-) : Converter<PGobject, Map<String, Any?>> {
-    override fun convert(pgObject: PGobject): Map<String, Any?> {
+) : Converter<PGobject, Map<String, String?>> {
+    override fun convert(pgObject: PGobject): Map<String, String?> {
         val source = pgObject.value
-        return objectMapper.readValue(source, object : TypeReference<Map<String, Any?>>() {})
+        return objectMapper.readValue(source, object : TypeReference<Map<String, String?>>() {})
     }
 }

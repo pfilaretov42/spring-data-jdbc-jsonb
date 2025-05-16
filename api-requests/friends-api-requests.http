@@ -30,14 +30,7 @@ Content-Type: application/json
     },
     "extras": {
       "publisher": "Marvel Comics",
-      "firstAppearance": {
-        "comicBook": "Tales of Suspense #39",
-        "year": 1963
-      },
-      "createdBy": [
-        "Stan Lee",
-        "Larry Lieber"
-      ]
+      "createdBy": "Stan Lee"
     }
   }
 }

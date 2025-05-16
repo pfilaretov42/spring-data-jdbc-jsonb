@@ -15,7 +15,7 @@ class FriendsEntity(
     val fullName: String,
     val alias: String,
     val superpower: SuperpowerEntity,
-    val extras: Map<String, Any?>?,
+    val extras: Map<String, String?>?,
 ) : Persistable<UUID> {
 
     @Transient

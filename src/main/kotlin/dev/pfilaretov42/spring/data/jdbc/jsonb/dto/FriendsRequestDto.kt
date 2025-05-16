@@ -9,7 +9,7 @@ class FriendsFullRequestDto(
     val fullName: String,
     val alias: String,
     val superpower: FriendsSuperpowerRequestDto,
-    val extras: Map<String, Any?>?,
+    val extras: Map<String, String?>?,
 )
 
 class FriendsSuperpowerRequestDto(
